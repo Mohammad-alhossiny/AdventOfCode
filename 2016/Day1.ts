@@ -1,5 +1,4 @@
 import * as fs from "fs";
-import {match} from "node:assert";
 
 const location = {
     x: 0,
