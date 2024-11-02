@@ -1,0 +1,17 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mohammad-alhossiny/AdventOfCode.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@types/node": "^22.8.6"
+  }
+}
