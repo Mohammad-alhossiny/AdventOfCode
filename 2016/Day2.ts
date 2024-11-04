@@ -1,4 +1,5 @@
-import * as readLine from "node:readline";
+import * as fs from "fs"
+
 
 let keypad: string[][] =
 [["1", "2", "3"],
@@ -35,19 +36,18 @@ function readCursor(cursor: number[]): string{
     return keypad[cursor[1]][cursor[0]];
 }
 
-const data: string= `ULL
-RRDDD
-LURDL
-UUUUD`;
+// const data: string= `ULL
+// RRDDD
+// LURDL
+// UUUUD`;
 
 
-// fs.readFile("inputs/Day2.txt", "utf8", (err, data) => {
-//     if (err) throw err;
+fs.readFile("inputs/Day2.txt", "utf8", (err, data) => {
+    if (err) throw err;
 let code: string = "";
 for (const line of data.split("\n")) {
     cursor = moveCursor(line, cursor)
     code += readCursor(cursor);
 }
 console.log(code)
-//
-// });
+});
