@@ -1,17 +1,24 @@
 import * as fs from "fs"
 
 
-let keypad: string[][] =
-[["1", "2", "3"],
- ["4", "5", "6"],
- ["7", "8", "9"]];
+let keypad: string[][];
+// keypad =
+// [["1", "2", "3"],
+//  ["4", "5", "6"],
+//  ["7", "8", "9"]];
 
-let cursor: number[] = [1, 1];
+keypad = [["Z", "Z", "1", "Z","Z"],
+        ["Z","2","3","4","Z"],
+        ["5","6","7","8","9"],
+        ["Z","A", "B", "C","Z"],
+        ["Z","Z","D","Z","Z"]];
+
+
 
 function moveCursor(line: string, cursor: number[]): number[] {
     for (const char of line.trim()) {
         let lastCursor: number[] = cursor.slice();
-        switch (char){
+        switch (char) {
             case "R":
                 cursor[0]++;
                 break;
@@ -25,7 +32,10 @@ function moveCursor(line: string, cursor: number[]): number[] {
                 cursor[1]++;
                 break;
         }
-        if (cursor[0] < 0 || cursor[1] < 0 || cursor[0] > 2 || cursor[1] > 2) {
+        if (cursor[0] < 0 || cursor[1] < 0 || cursor[0] > 4 || cursor[1] > 4) {
+            cursor = lastCursor;
+        }
+        if (readCursor(cursor) === "Z") {
             cursor = lastCursor;
         }
     }
@@ -36,18 +46,14 @@ function readCursor(cursor: number[]): string{
     return keypad[cursor[1]][cursor[0]];
 }
 
-// const data: string= `ULL
-// RRDDD
-// LURDL
-// UUUUD`;
 
-
+let cursor: number[] = [0, 2];
 fs.readFile("inputs/Day2.txt", "utf8", (err, data) => {
     if (err) throw err;
-let code: string = "";
-for (const line of data.split("\n")) {
-    cursor = moveCursor(line, cursor)
-    code += readCursor(cursor);
+    let code: string = "";
+    for (const line of data.split("\n")) {
+        cursor = moveCursor(line, cursor)
+        code += readCursor(cursor);
 }
-console.log(code)
-});
+    console.log(code)}
+);
