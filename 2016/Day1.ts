@@ -93,7 +93,7 @@ const location = {
         }
     }
 }
-fs.readFile("inputs/Day.txt", "utf8", (err, data) => {
+fs.readFile("inputs/Day1.txt", "utf8", (err, data) => {
     if (err) throw err;
     for (let command of data.split(",")) {
         command = command.trim()
