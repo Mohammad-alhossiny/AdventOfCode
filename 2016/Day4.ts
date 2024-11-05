@@ -22,7 +22,7 @@ function countChars(name: string): {[char: string]: number} {
 }
 
 function getChecksum(countChars: object, checksum:string): boolean {
-    let strCalcChecksum: string = "";
+    let strCalcChecksum: string;
     let calcChecksum:[string, number][]= Object.entries(countChars).sort(([ka, a], [kb, b]) => {
         if (a === b){
             return ka.localeCompare(kb);
@@ -34,7 +34,7 @@ function getChecksum(countChars: object, checksum:string): boolean {
 }
 
 function decrypt(name:string, id:number): string {
-    const startCode = "a".charCodeAt(0); const endCode = "z".charCodeAt(0);
+    const startCode = "a".charCodeAt(0);
     let decrypted:string = "";
     for (const char of name) {
         if (char == ","){
