@@ -17,7 +17,7 @@ function mostRepeated(letter: string[]): string {
     for (const c of letter) {
         counts[c] = (counts[c] || 0) + 1;
     }
-    result = Object.entries(counts).sort(([, a], [, b])=> b-a)[0][0];
+    result = Object.entries(counts).sort(([, a], [, b])=> a-b)[0][0]; // b-a part 1, a-b part2
     return result;
 }
 
