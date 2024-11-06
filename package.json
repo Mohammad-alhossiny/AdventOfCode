@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@types/node": "^22.8.6"
+    "@types/node": "^22.8.6",
+    "js-md5": "^0.8.3"
   }
 }

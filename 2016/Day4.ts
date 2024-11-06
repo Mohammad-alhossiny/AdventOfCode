@@ -1,6 +1,5 @@
 // @ts-ignore
 import fs from "fs";
-// letters-id[check]
 
 function returnParts(line: string): [string, number, string] {
     let name:string; let id:number; let checksum:string;
@@ -69,8 +68,6 @@ function main(data:string):number {
     return idSum;
 }
 
-// const data: string = "aaaaa-bbb-z-y-x-123[abxyz]\na-b-c-d-e-f-g-h-987[abcde]\nnot-a-real-room-404[oarel]\ntotally-real-room-200[decoy]"
-// console.log(main(data));
 
 fs.readFile("inputs/Day4.txt", "utf8", (err, data) => {
     if (err) throw err;
