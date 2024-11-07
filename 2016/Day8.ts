@@ -47,11 +47,22 @@ class KeyDisplay{
     }
 
     createScreen(screenSizeX:number = 50, screenSizeY:number = 6):string[][] {
-        return Array.from({length: screenSizeY}, () => Array(screenSizeX).fill("."));
+        return Array.from({length: screenSizeY}, () => Array(screenSizeX).fill(" "));
     }
+
     displayScreen():void{
         for (const screenRow of this.screen) {
-            console.log(screenRow.join(""));
+            const result = [];
+
+            for (let i = 0; i < screenRow.length; i++) {
+                result.push(screenRow[i]);
+
+                // After every 5th element, add the item
+                if ((i + 1) % 5 === 0) {
+                    result.push("\t");
+                }
+            }
+            console.log(result.join(""));
         }
     }
 
@@ -80,11 +91,6 @@ function main(data:string):void {
     }
     console.log(screen.countOn());
 }
-
-// const data:string = "rect 3x2 \n" +
-//     "rotate column x=1 by 1 \n" +
-//     "rotate row y=0 by 4 \n" +
-//     "rotate column x=1 by 1 \n"
 
 readFile("inputs/Day8.txt", "utf8", (err, data) => {
     if (err) throw err;
