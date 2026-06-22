@@ -1,8 +1,3 @@
-keypad = [[1, 2, 3],
-          [4, 5,6],
-          [7,8,9]]
-x = y = 1
-
 def move_cursor(x, y, movement):
     if movement == "U" and y>0:
         y -= 1
@@ -39,4 +34,9 @@ with open("inputs/Day2.txt","r") as f:
     in_str = f.read()
 
 if __name__ == "__main__":
+    keypad = [[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]]
+    x = y = 1
+
     print(main(x, y,get_lines(in_str)))
