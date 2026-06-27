@@ -44,3 +44,4 @@ if __name__ == '__main__':
         screen = main(line, screen)
 
     print(screen.sum())
+    np.savetxt("Day8.txt", screen.astype(int), fmt="%d")
