@@ -88,4 +88,3 @@ value 2 goes to bot 2"""
             give(bot)
 
     print("multiply together the values of outputs 0, 1, and 2 = ", outputs["0"]* outputs["1"] * outputs["2"])
-
